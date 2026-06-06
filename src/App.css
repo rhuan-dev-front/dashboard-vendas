@@ -1,7 +1,6 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
 }
 
 .container {
@@ -85,4 +84,106 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
+}
+
+
+
+.dark {
+  background-color: #1e1e1e;
+  color: white;
+  min-height: 100vh;
+}
+
+.dark .card {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.dark table {
+  color: white;
+}
+
+.dark th {
+  background-color: #333;
+}
+
+
+
+.dark .content {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark .sidebar {
+  background-color: #111827;
+  color: white;
+}
+
+.dark input {
+  background-color: #2d2d2d;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark input::placeholder {
+  color: #bbb;
+}
+
+.dark button {
+  background-color: #374151;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.dark button:hover {
+  background-color: #4b5563;
+}
+
+.dark table {
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.dark td {
+  border-color: #555;
+}
+
+.dark th {
+  background-color: #374151;
+  color: white;
+}
+
+.dark .tabela th {
+  background-color: #374151;
+}
+
+.dark .tabela td {
+  background-color: #2d2d2d;
+}
+
+.dark h1,
+.dark h2,
+.dark p,
+.dark li {
+  color: white;
+}
+
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.tabela th {
+  background: #f5f5f5;
 }

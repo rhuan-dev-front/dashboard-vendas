@@ -1,6 +1,6 @@
 function TabelaUsuarios({ listaUsuarios, busca }) {
   return (
-    <table>
+    <table className="tabela">
       <thead>
         <tr>
           <th>Nome</th>

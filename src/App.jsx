@@ -2,37 +2,75 @@ import './App.css'
 import Card from './components/Card'
 import { useState, useEffect } from 'react'
 import TabelaUsuarios from './components/TabelaUsuarios'
+import Grafico from './components/Grafico.jsx'
 
 function App() {
 
-  const [usuarios] = useState(250)
-  const [vendas] = useState(1200)
-  const [pedidos] = useState(89)
-  const [lucro] = useState(5000)
+const [vendas, setVendas] = useState(1200)
+const [pedidos, setPedidos] = useState(89)
+const [lucro, setLucro] = useState(5000)
 
   const [busca, setBusca] = useState('')
 
   const [listaUsuarios, setListaUsuarios] = useState([])
 
+  const [carregando, setCarregando] = useState(true)
 
-  useEffect(() => {
+  const [darkMode, setDarkMode] = useState(false)
+
+
+  const carregarUsuarios = () => {
+  setCarregando(true)
+
+
+   fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => {
+      setListaUsuarios(data)
+
+      setVendas(Math.floor(Math.random() * 5000))
+      setPedidos(Math.floor(Math.random() * 300))
+      setLucro(Math.floor(Math.random() * 20000))
+
+      setCarregando(false)
+    })
+
+  setTimeout(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => {
+        setListaUsuarios(data)
+        setCarregando(false)
+      })
+  }, 4000)
+
   fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
       setListaUsuarios(data)
+      setCarregando(false)
+
+      console.log('Usuários atualizados!')
     })
+}
+
+
+
+useEffect(() => {
+  setTimeout(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => {
+        setListaUsuarios(data)
+        setCarregando(false)
+      })
+  }, 3000)
 }, [])
 
-  const atividades = [
-  'João fez uma compra',
-  'Maria criou uma conta',
-  'Pedro atualizou o perfil',
-  'Ana realizou um pagamento'
-]
 
 
 return (
-  <div className="layout">
+  <div className={`layout ${darkMode ? 'dark' : ''}`}>
     <aside className="sidebar">
       <h2>Dashboard</h2>
 
@@ -44,6 +82,11 @@ return (
       </ul>
     </aside>
 
+    <button onClick={() => setDarkMode(!darkMode)}>
+  {darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
+</button>
+
+
     <main className="content">
       <h1>Dashboard</h1>
 
@@ -54,13 +97,12 @@ return (
         <Card titulo="Lucro" valor={`R$ ${lucro}`} />
       </div>
 
-      <h2>Atividades Recentes</h2>
 
-      <ul>
-        {atividades.map((atividade, index) => (
-          <li key={index}>{atividade}</li>
-        ))}
-      </ul>
+      <h2>Gráfico de Vendas</h2>
+
+<Grafico />
+
+      
 
 <input
   type="text"
@@ -68,6 +110,11 @@ return (
   value={busca}
   onChange={(e) => setBusca(e.target.value)}
 />
+
+
+<button onClick={carregarUsuarios}>
+  Atualizar Usuários
+</button>
 
       <h2>Usuários da API</h2>
 
@@ -79,11 +126,14 @@ return (
   }
 </p>
 
-<TabelaUsuarios
-  listaUsuarios={listaUsuarios}
-  busca={busca}
-/>
-
+{carregando ? (
+  <p>Carregando usuários...</p>
+) : (
+  <TabelaUsuarios
+    listaUsuarios={listaUsuarios}
+    busca={busca}
+  />
+)}
     </main>
   </div>
 )
