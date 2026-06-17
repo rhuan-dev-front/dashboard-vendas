@@ -2,7 +2,7 @@
 
 Dashboard desenvolvido em React para visualização de indicadores de desempenho, métricas de vendas e gerenciamento de informações através de uma interface moderna e intuitiva.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * React
 * JavaScript
@@ -10,7 +10,7 @@ Dashboard desenvolvido em React para visualização de indicadores de desempenho
 * API REST
 * Git e GitHub
 
-## ✨ Funcionalidades
+##  Funcionalidades
 
 * Visualização de métricas de vendas
 * Dashboard com indicadores
@@ -19,26 +19,26 @@ Dashboard desenvolvido em React para visualização de indicadores de desempenho
 * Componentes reutilizáveis
 * Gerenciamento de informações em tempo real
 
-## 📸 Screenshots
+##  Screenshots
 
 Adicione aqui imagens do dashboard em funcionamento.
 
-## 🎯 Objetivo do Projeto
+##  Objetivo do Projeto
 
 Este projeto foi desenvolvido para praticar conceitos de React, consumo de APIs, componentização, gerenciamento de estado e construção de interfaces utilizadas em ambientes corporativos.
 
-## 🛠 Como Executar
+##  Como Executar
 
 ```bash
 npm install
 npm start
 ```
 
-## 🔗 Deploy
+##  Deploy
 
 Em breve disponível no Vercel.
 
-## 👨‍💻 Desenvolvedor
+##  Desenvolvedor
 
 Rhuan Henrique
 
